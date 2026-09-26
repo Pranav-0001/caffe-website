@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-cream: #F7F3EA;
+  --bg-beige: #E8DED0;
+  --text-espresso: #3B2B24;
+  --text-charcoal: #262522;
+  --accent-sage: #899A7A;
+  --accent-taupe: #B8AA99;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+  background-color: var(--bg-cream);
+  color: var(--text-charcoal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Restrained selection styling */
+::selection {
+  background-color: #3B2B24;
+  color: #F7F3EA;
+}
+
+/* Subtle focus ring */
+:focus-visible {
+  outline: 2px solid #3B2B24;
+  outline-offset: 3px;
+}
+
+/* Smooth link underline animation */
+.nav-link {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+  width: 100%;
+}
+
+/* Subtle image scale transition on hover */
+.img-zoom-container {
+  overflow: hidden;
+}
+
+.img-zoom {
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.img-zoom-container:hover .img-zoom {
+  transform: scale(1.025);
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .img-zoom {
+    transition: none !important;
+    transform: none !important;
+  }
+  
+  .img-zoom-container:hover .img-zoom {
+    transform: none !important;
+  }
+}
