@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { IntroSection } from "@/components/IntroSection";
 import { DrinksSection } from "@/components/DrinksSection";
+import { BestSellers } from "@/components/BestSellers";
 import { BakerySection } from "@/components/BakerySection";
 import { CoffeeStory } from "@/components/CoffeeStory";
 import { SignatureSection } from "@/components/SignatureSection";
@@ -19,6 +20,7 @@ export default function HomePage() {
         <Hero />
         <IntroSection />
         <DrinksSection />
+        <BestSellers />
         <BakerySection />
         <CoffeeStory />
         <SignatureSection />
