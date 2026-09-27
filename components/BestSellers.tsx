@@ -87,43 +87,43 @@ export function BestSellers() {
       id="best-sellers"
       tabIndex={0}
       onKeyDown={handleKeyDown}
-      className="py-20 sm:py-28 lg:py-32 bg-cream-50 border-t border-espresso/5 overflow-hidden focus:outline-none select-none"
+      className="scroll-mt-16 py-6 sm:py-8 lg:py-10 bg-cream-50 border-t border-espresso/5 overflow-hidden focus:outline-none select-none"
       aria-label="Our Best Sellers"
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12">
-        {/* Section Heading Area */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 lg:mb-16">
-          <span className="inline-block text-xs uppercase tracking-brand text-taupe-dark font-medium mb-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col items-center">
+        {/* Section Heading Area (Compact, Elegant, Single-View Fit) */}
+        <div className="text-center max-w-lg mx-auto mb-1.5 sm:mb-2">
+          <span className="inline-block text-[10px] uppercase tracking-brand text-taupe-dark font-medium mb-0.5">
             OUR BEST SELLERS
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-espresso font-normal tracking-tight mb-4">
+          <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-espresso font-normal tracking-tight mb-0.5 leading-tight">
             The ones we keep coming back to.
           </h2>
-          <p className="font-sans text-charcoal-muted text-base sm:text-lg font-light">
+          <p className="font-sans text-charcoal-muted text-xs font-light max-w-sm mx-auto">
             A few MORA favorites, made with care and worth ordering again.
           </p>
         </div>
 
         {/* Dedicated 3-Slot Carousel Stage Container */}
         <div
-          className="relative max-w-6xl mx-auto flex items-center justify-center"
+          className="relative w-full max-w-4xl mx-auto flex items-center justify-center"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          {/* Arrow Left Button (Outside product cluster) */}
+          {/* Arrow Left Button (Aligned with product stage center) */}
           <button
             type="button"
             onClick={handlePrev}
             aria-label="Previous best seller"
-            className="group absolute left-0 sm:left-2 md:left-4 lg:left-6 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-full border border-espresso/20 bg-cream-100/95 backdrop-blur-xs text-espresso flex items-center justify-center hover:border-espresso hover:bg-espresso hover:text-cream-50 active:scale-95 transition-all duration-300 shadow-[0_4px_16px_rgba(59,43,36,0.08)] cursor-pointer"
+            className="group absolute left-1 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-espresso/20 bg-cream-100/95 backdrop-blur-xs text-espresso flex items-center justify-center hover:border-espresso hover:bg-espresso hover:text-cream-50 active:scale-95 transition-all duration-300 shadow-[0_3px_10px_rgba(59,43,36,0.06)] cursor-pointer"
           >
-            <span className="font-sans text-base transition-transform duration-200 group-hover:-translate-x-0.5">
+            <span className="font-sans text-xs sm:text-sm transition-transform duration-200 group-hover:-translate-x-0.5">
               ←
             </span>
           </button>
 
-          {/* Dedicated Fixed Height Product Stage */}
-          <div className="relative w-full h-[340px] sm:h-[420px] md:h-[480px] lg:h-[520px] overflow-visible">
+          {/* Dedicated Fixed-Height Compact Product Stage */}
+          <div className="relative w-full h-[200px] sm:h-[220px] md:h-[250px] overflow-visible">
             {bestSellers.map((product, idx) => {
               const slot = getSlot(idx);
               const isCenter = slot === "center";
@@ -137,7 +137,7 @@ export function BestSellers() {
                     }
                   }}
                   data-slot={slot}
-                  className={`absolute top-1/2 left-1/2 w-[280px] sm:w-[360px] md:w-[420px] lg:w-[460px] aspect-square transition-all duration-[650ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
+                  className={`absolute top-1/2 left-1/2 w-[160px] sm:w-[190px] md:w-[220px] lg:w-[240px] aspect-square transition-all duration-[650ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
                     isCenter ? "cursor-default z-30" : "cursor-pointer z-10"
                   }`}
                   style={{
@@ -145,23 +145,23 @@ export function BestSellers() {
                       slot === "center"
                         ? "translate3d(-50%, -50%, 0) scale(1.0)"
                         : slot === "left"
-                        ? "translate3d(calc(-50% - var(--side-distance, 340px)), -50%, 0) scale(0.68)"
-                        : "translate3d(calc(-50% + var(--side-distance, 340px)), -50%, 0) scale(0.68)",
+                        ? "translate3d(calc(-50% - var(--side-distance, 200px)), -50%, 0) scale(0.68)"
+                        : "translate3d(calc(-50% + var(--side-distance, 200px)), -50%, 0) scale(0.68)",
                     opacity: isCenter ? 1 : 0.60,
                   }}
                 >
                   <div
                     className={`relative w-full h-full transition-all duration-[650ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
                       isCenter
-                        ? "filter drop-shadow-[0_25px_35px_rgba(59,43,36,0.18)]"
-                        : "filter drop-shadow-[0_12px_20px_rgba(59,43,36,0.08)] hover:opacity-85"
+                        ? "filter drop-shadow-[0_14px_22px_rgba(59,43,36,0.16)]"
+                        : "filter drop-shadow-[0_6px_12px_rgba(59,43,36,0.06)] hover:opacity-85"
                     }`}
                   >
                     <Image
                       src={product.image}
                       alt={product.name}
                       fill
-                      sizes="(max-width: 640px) 280px, (max-width: 1024px) 420px, 460px"
+                      sizes="(max-width: 640px) 160px, (max-width: 1024px) 220px, 240px"
                       className="object-contain pointer-events-none"
                       priority={idx === 1}
                     />
@@ -171,56 +171,56 @@ export function BestSellers() {
             })}
           </div>
 
-          {/* Arrow Right Button (Outside product cluster) */}
+          {/* Arrow Right Button (Aligned with product stage center) */}
           <button
             type="button"
             onClick={handleNext}
             aria-label="Next best seller"
-            className="group absolute right-0 sm:right-2 md:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-full border border-espresso/20 bg-cream-100/95 backdrop-blur-xs text-espresso flex items-center justify-center hover:border-espresso hover:bg-espresso hover:text-cream-50 active:scale-95 transition-all duration-300 shadow-[0_4px_16px_rgba(59,43,36,0.08)] cursor-pointer"
+            className="group absolute right-1 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-espresso/20 bg-cream-100/95 backdrop-blur-xs text-espresso flex items-center justify-center hover:border-espresso hover:bg-espresso hover:text-cream-50 active:scale-95 transition-all duration-300 shadow-[0_3px_10px_rgba(59,43,36,0.06)] cursor-pointer"
           >
-            <span className="font-sans text-base transition-transform duration-200 group-hover:translate-x-0.5">
+            <span className="font-sans text-xs sm:text-sm transition-transform duration-200 group-hover:translate-x-0.5">
               →
             </span>
           </button>
         </div>
 
-        {/* Product Information Area for Centered Product with Fixed Height */}
-        <div className="mt-8 sm:mt-10 md:mt-12 text-center max-w-md mx-auto min-h-[160px] flex flex-col items-center justify-start">
+        {/* Product Information Area (Directly below stage with zero dead whitespace) */}
+        <div className="mt-1 sm:mt-1.5 text-center max-w-md mx-auto min-h-[85px] flex flex-col items-center justify-start">
           <div
             className={`transition-all duration-300 transform ${
               isTextFading
-                ? "opacity-0 translate-y-2"
+                ? "opacity-0 translate-y-1"
                 : "opacity-100 translate-y-0"
             }`}
           >
             {activeProduct.tagline && (
-              <span className="inline-block text-[11px] font-sans uppercase tracking-widest text-taupe-dark font-medium mb-1.5">
+              <span className="inline-block text-[10px] font-sans uppercase tracking-widest text-taupe-dark font-medium mb-0.5">
                 {activeProduct.tagline}
               </span>
             )}
-            <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-espresso font-normal tracking-tight mb-2.5">
+            <h3 className="font-serif text-lg sm:text-xl md:text-2xl text-espresso font-normal tracking-tight mb-0.5 leading-tight">
               {activeProduct.name}
             </h3>
-            <p className="font-sans text-charcoal-muted text-sm sm:text-base leading-relaxed mb-3.5">
+            <p className="font-sans text-charcoal-muted text-xs leading-normal mb-1 max-w-xs sm:max-w-sm mx-auto font-light">
               {activeProduct.description}
             </p>
-            <span className="inline-block font-serif text-xl sm:text-2xl text-espresso font-medium">
+            <span className="inline-block font-serif text-base sm:text-lg text-espresso font-medium">
               {activeProduct.price}
             </span>
           </div>
 
           {/* Subtle Dot Indicators */}
-          <div className="flex items-center justify-center space-x-2.5 mt-6">
+          <div className="flex items-center justify-center space-x-1.5 mt-1.5">
             {bestSellers.map((item, idx) => (
               <button
                 key={item.id}
                 type="button"
                 onClick={() => navigateTo(idx)}
                 aria-label={`Go to ${item.name}`}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
+                className={`h-1 rounded-full transition-all duration-300 ${
                   idx === centerIndex
-                    ? "w-6 bg-espresso"
-                    : "w-1.5 bg-espresso/20 hover:bg-espresso/40"
+                    ? "w-4 bg-espresso"
+                    : "w-1 bg-espresso/25 hover:bg-espresso/50"
                 }`}
               />
             ))}

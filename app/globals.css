@@ -9,30 +9,30 @@
   --text-charcoal: #262522;
   --accent-sage: #899A7A;
   --accent-taupe: #B8AA99;
-  --side-distance: 125px;
+  --side-distance: 100px;
 }
 
 @media (min-width: 640px) {
   :root {
-    --side-distance: 200px;
+    --side-distance: 140px;
   }
 }
 
 @media (min-width: 768px) {
   :root {
-    --side-distance: 260px;
+    --side-distance: 180px;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --side-distance: 320px;
+    --side-distance: 220px;
   }
 }
 
 @media (min-width: 1280px) {
   :root {
-    --side-distance: 360px;
+    --side-distance: 240px;
   }
 }
 
